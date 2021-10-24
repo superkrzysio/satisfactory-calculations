@@ -24,4 +24,23 @@ public class ItemPrinter
         }
         return sb.toString();
     }
+
+    public String htmlPrinter(Item item)
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<li><a href=\"#\">").append(item).append("</a>").append("\n");
+
+        if (!item.inputs.isEmpty())
+        {
+            sb.append("<ul>\n");
+            for (InputComponent component : item.inputs)
+            {
+                sb.append(htmlPrinter(component.item));
+            }
+            sb.append("</ul>\n");
+        }
+
+        sb.append("</li>\n");
+        return sb.toString();
+    }
 }

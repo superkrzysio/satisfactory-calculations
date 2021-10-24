@@ -1,0 +1,109 @@
+items:
+  - &Raw-item-1
+    name: Raw item 1
+    raw: true
+
+  - &Raw-item-2
+    name: Raw item 2
+    raw: true
+
+  - &Item-lvl1-A
+    name: Item lvl1 A
+    baseOutput: 30
+    inputs:
+      - item: *Raw-item-1
+        baseInput: 30
+      - item: *Raw-item-2
+        baseInput: 20
+
+  - &Item-lvl1-B
+    name: Item lvl1 B
+    baseOutput: 30
+    inputs:
+      - item: *Raw-item-1
+        baseInput: 30
+      - item: *Raw-item-2
+        baseInput: 20
+
+  - &Item-lvl2-A
+    name: Item lvl2 A
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl1-A
+        baseInput: 30
+      - item: *Item-lvl1-B
+        baseInput: 20
+
+  - &Item-lvl2-B
+    name: Item lvl2 B
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl1-A
+        baseInput: 30
+      - item: *Item-lvl1-B
+        baseInput: 20
+
+  - &Item-lvl3-A
+    name: Item lvl3 A
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl2-A
+        baseInput: 30
+      - item: *Item-lvl2-B
+        baseInput: 20
+
+  - &Item-lvl3-B
+    name: Item lvl3 B
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl2-A
+        baseInput: 30
+      - item: *Item-lvl2-B
+        baseInput: 20
+
+  - &Item-lvl4-A
+    name: Item lvl4 A
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl3-A
+        baseInput: 30
+      - item: *Item-lvl3-B
+        baseInput: 20
+
+  - &Item-lvl4-B
+    name: Item lvl4 B
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl3-A
+        baseInput: 30
+      - item: *Item-lvl3-B
+        baseInput: 20
+
+  - &Item-lvl5-A
+    name: Item lvl5 A
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl4-A
+        baseInput: 30
+      - item: *Item-lvl4-B
+        baseInput: 20
+
+  - &Item-lvl5-B
+    name: Item lvl5 B
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl4-A
+        baseInput: 30
+      - item: *Item-lvl4-B
+        baseInput: 20
+
+
+  - &Item-lvl6-top
+    name: Item lvl6 top
+    baseOutput: 30
+    inputs:
+      - item: *Item-lvl5-A
+        baseInput: 30
+      - item: *Item-lvl5-B
+        baseInput: 20
+

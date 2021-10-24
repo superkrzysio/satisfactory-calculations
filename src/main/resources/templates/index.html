@@ -6,8 +6,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="tree.css?v=1">
+    <link rel="stylesheet" href="tabs.css?v=3">
 
     <title>Satisfactory calculator</title>
 
@@ -23,9 +26,8 @@
 <div class="container">
 <h2 class="text-center">Satisfactory calculator</h2>
 <div class="clearfix"></div>
-<hr class="my-5" />
+<hr />
 <div class="clearfix"></div>
-<div>
     <form method="get" action="/" class="form-horizontal">
         <div class="form-group">
             <label for="itemSelection" class="col-sm-2 control-label">Select an item:</label>
@@ -49,12 +51,34 @@
             </div>
         </div>
     </form>
-    <hr class="my-10" />
-    <pre th:if="${itemTree}" th:text="${itemTree}"></pre>
-
+    <hr />
 </div>
+<div class="container-fluid">
+    <div class="tabbable-panel">
+        <div class="tabbable-line">
+            <ul class="nav nav-tabs ">
+                <li class="active">
+                    <a href="#tab_default_1" data-toggle="tab">
+                        Tree view </a>
+                </li>
+                <li>
+                    <a href="#tab_default_2" data-toggle="tab">
+                        Raw view </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_default_1">
+                    <div class="tree" style="overflow: auto"><ul th:utext="${itemHtmlTree}"></ul></div>
+                </div>
+                <div class="tab-pane" id="tab_default_2">
+                    <pre th:if="${itemTree}" th:text="${itemTree}"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>

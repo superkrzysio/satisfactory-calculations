@@ -31,6 +31,7 @@ public class ItemController
         {
             Item recalculated = item.getItemTreeForOutput(requestedCount);
             view.addObject("itemTree", itemPrinter.printedTree(recalculated));
+            view.addObject("itemHtmlTree", itemPrinter.htmlPrinter(recalculated));
         }
         return view;
     }
