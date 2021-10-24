@@ -12,7 +12,7 @@ items:
 
   - &Iron-rod
     name: Iron rod
-    baseOutput: 40
+    baseOutput: 15
     inputs:
       - item: *Iron-ingot
         baseInput: 15

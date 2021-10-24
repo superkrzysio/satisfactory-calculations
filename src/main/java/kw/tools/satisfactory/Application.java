@@ -1,24 +1,13 @@
 package kw.tools.satisfactory;
 
-import org.yaml.snakeyaml.Yaml;
-import org.yaml.snakeyaml.constructor.Constructor;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.io.IOException;
-import java.io.InputStream;
-
+@SpringBootApplication
 public class Application
 {
-    public static void main(String[] args) throws IOException
+    public static void main(String[] args)
     {
-        new Application().parse();
-    }
-
-    public void parse() throws IOException
-    {
-        Yaml yaml = new Yaml(new Constructor(ItemList.class));
-        InputStream inputStream = this.getClass()
-                .getClassLoader()
-                .getResourceAsStream("items.yaml");
-        ItemList items = yaml.load(inputStream);
+        SpringApplication.run(Application.class, args);
     }
 }

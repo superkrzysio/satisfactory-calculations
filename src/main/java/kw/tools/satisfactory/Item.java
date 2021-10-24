@@ -5,8 +5,20 @@ import java.util.List;
 
 public class Item
 {
+    /**
+     * Input components with their input amounts.
+     * Normal item structure has base inputs specified, while recalculated item have the real needed inputs.
+     */
     public List<InputComponent> inputs;
+
+    /**
+     *
+     */
     public int baseOutput;
+
+    /**
+     * Unique name
+     */
     public String name;
 
     /**
@@ -19,19 +31,47 @@ public class Item
         return baseOutput;
     }
 
-    public List<InputComponent> getInputsForOutput(int requested)
+    /**
+     * Generate a new Item - along with its components tree - with recalculated amounts.
+     *
+     * @param requested
+     * @return
+     */
+    public Item getItemTreeForOutput(int requested)
     {
+        Item newItem = new Item();
+        newItem.name = this.name;
+        newItem.raw = this.raw;
+        newItem.inputs = new ArrayList<>();
+        newItem.baseOutput = requested;
+
         if (raw)
         {
-            throw new IllegalStateException("This item has no inputs");
+            return newItem;
         }
 
-        List<InputComponent> requestedOutputs = new ArrayList<>();
         for (InputComponent input : inputs)
         {
             int recalculatedInput = (int) Math.ceil((double) requested / baseOutput * input.baseInput);
-            requestedOutputs.add(new InputComponent(input.item, recalculatedInput));
+            newItem.inputs.add(new InputComponent(input.item.getItemTreeForOutput(recalculatedInput), recalculatedInput));
         }
-        return requestedOutputs;
+        return newItem;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.name + " (" + baseOutput + ")";
+    }
+
+    public String toTreeString(String indent)
+    {
+        StringBuilder sb = new StringBuilder()
+                .append(indent).append(this).append("\n");
+        for (InputComponent component : inputs)
+        {
+            sb.append(component.item.toTreeString(indent + indent));
+        }
+        return sb.toString();
     }
 }
