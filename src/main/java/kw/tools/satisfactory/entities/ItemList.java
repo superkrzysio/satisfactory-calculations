@@ -1,4 +1,4 @@
-package kw.tools.satisfactory;
+package kw.tools.satisfactory.entities;
 
 import java.util.List;
 

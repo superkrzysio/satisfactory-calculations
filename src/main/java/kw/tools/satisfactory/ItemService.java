@@ -1,5 +1,7 @@
 package kw.tools.satisfactory;
 
+import kw.tools.satisfactory.entities.Item;
+import kw.tools.satisfactory.entities.ItemList;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;

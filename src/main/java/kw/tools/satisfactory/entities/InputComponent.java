@@ -1,4 +1,4 @@
-package kw.tools.satisfactory;
+package kw.tools.satisfactory.entities;
 
 /**
  * A class that shows base input of a produced item.
