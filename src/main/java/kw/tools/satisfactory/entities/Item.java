@@ -63,15 +63,4 @@ public class Item
     {
         return this.name + " (" + baseOutput + ")";
     }
-
-    public String toTreeString(String indent)
-    {
-        StringBuilder sb = new StringBuilder()
-                .append(indent).append(this).append("\n");
-        for (InputComponent component : inputs)
-        {
-            sb.append(component.item.toTreeString(indent + indent));
-        }
-        return sb.toString();
-    }
 }

@@ -13,6 +13,9 @@ public class ItemController
     @Autowired
     private ItemService itemService;
 
+    @Autowired
+    private ItemPrinter itemPrinter;
+
     @RequestMapping("/")
     public ModelAndView redirect(
             @RequestParam(value = "item", required = false) String selectedItem,
@@ -27,7 +30,7 @@ public class ItemController
         if (requestedCount > 0 && item != null)
         {
             Item recalculated = item.getItemTreeForOutput(requestedCount);
-            view.addObject("itemTree", recalculated.toTreeString("  "));
+            view.addObject("itemTree", itemPrinter.printedTree(recalculated));
         }
         return view;
     }
