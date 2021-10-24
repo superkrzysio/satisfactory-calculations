@@ -1,0 +1,100 @@
+items:
+  - &Iron-ore
+    name: Iron ore
+    raw: true
+
+  - &Iron-ingot
+    name: Iron ingot
+    baseOutput: 30
+    inputs:
+      - item: *Iron-ore
+        baseInput: 30
+
+  - &Iron-rod
+    name: Iron rod
+    baseOutput: 40
+    inputs:
+      - item: *Iron-ingot
+        baseInput: 15
+
+  - &Screw
+    name: Screw
+    baseOutput: 40
+    inputs:
+      - item: *Iron-rod
+        baseInput: 10
+
+  - &Iron-plate
+    name: Iron plate
+    baseOutput: 20
+    inputs:
+      - item: *Iron-ingot
+        baseInput: 30
+
+  - &Rotor
+    name: Rotor
+    baseOutput: 4
+    inputs:
+      - item: *Iron-rod
+        baseInput: 20
+      - item: *Screw
+        baseInput: 100
+
+  - &Reinforced-iron-plate
+    name: Reinforced iron plate
+    baseOutput: 5
+    inputs:
+      - item: *Iron-plate
+        baseInput: 30
+      - item: *Screw
+        baseInput: 60
+
+  - &Modular-frame
+    name: Modular frame
+    baseOutput: 2
+    inputs:
+      - item: *Reinforced-iron-plate
+        baseInput: 3
+      - item: *Iron-rod
+        baseInput: 12
+
+  - &Smart-plating
+    name: Smart plating
+    baseOutput: 2
+    inputs:
+      - item: *Reinforced-iron-plate
+        baseInput: 2
+      - item: *Rotor
+        baseInput: 2
+
+  - &Copper-ore
+    name: Copper ore
+    raw: true
+
+  - &Copper-ingot
+    name: Copper ingot
+    baseOutput: 30
+    inputs:
+      - item: *Copper-ore
+        baseInput: 30
+
+  - &Wire
+    name: Wire
+    baseOutput: 30
+    inputs:
+      - item: *Copper-ingot
+        baseInput: 15
+
+  - &Cable
+    name: Cable
+    baseOutput: 30
+    inputs:
+      - item: *Wire
+        baseInput: 60
+
+  - &Copper-sheet
+    name: Copper sheet
+    baseOutput: 10
+    inputs:
+      - item: *Copper-ingot
+        baseInput: 20
